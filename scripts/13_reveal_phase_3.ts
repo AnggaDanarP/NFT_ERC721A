@@ -11,6 +11,9 @@ async function main() {
     console.log(`Updating the URI prefix phase 3 to: ${process.env.COLLECTION_URI_PHASE3}`);
     await (await contract.setBaseUri(process.env.COLLECTION_URI_PHASE3)).wait();
 
+    console.log('Revealing the collection...');
+    await (await contract.setRevealed(true)).wait();
+
     console.log("Your Collection is Open...");
 }
 
